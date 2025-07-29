@@ -123,3 +123,12 @@ body{
 
 .ramo.aprobado{
   background: linear-gradient(180deg, #eafff3, #d9ffea);
+  border-color:#a6e7c3;
+  box-shadow: 0 2px 0 #a6e7c3, inset 0 0 0 2px #c7f5db;
+  color:#0b5e32;
+
+  /* TACHADO visible */
+  text-decoration: line-through;
+  text-decoration-thickness: 3px;
+  text-decoration-color: #0b5e32;
+}
