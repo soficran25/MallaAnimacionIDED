@@ -1,1 +1,26 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8e7e7; /* Rosa */
+    padding: 20px;
+}
+
+h1, h2 {
+    color: #c72c48; /* Rojo oscuro */
+}
+
+.semestre {
+    margin-bottom: 20px;
+}
+
+.ramo {
+    background-color: #ffb3b3; /* Rosa claro */
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.ramo.aprobado {
+    background-color: #d9ead3; /* Verde claro */
+    color: #006100; /* Verde oscuro */
+}
 
