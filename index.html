@@ -1,32 +1,76 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Malla Curricular Interactiva</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Malla IDED — Interactiva</title>
+
+  <!-- OJO: el nombre aquí debe coincidir con el archivo del repo -->
+  <link rel="stylesheet" href="estilos.css" />
+
+  <!-- Iconos opcionales (candado/check) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Malla Curricular Interactiva</h1>
-
-    <div class="semestre">
-        <h2>1 Semestre</h2>
-        <div class="ramo" id="taller1">Taller 1: Procesos Creativos</div>
-        <div class="ramo" id="narrativa">Narrativa Literaria e Hipertextual</div>
-        <div class="ramo" id="dibujo">Dibujo Creativo</div>
-        <!-- Agrega el resto de ramos del 1er semestre aquí -->
+  <header class="app-header">
+    <h1>Malla Curricular Interactiva — IDED</h1>
+    <div class="toolbar">
+      <button id="btnReset" class="btn ghost">Reiniciar</button>
+      <button id="btnExport" class="btn ghost">Exportar progreso</button>
+      <label class="btn ghost">
+        Importar progreso
+        <input id="importFile" type="file" accept=".json" hidden>
+      </label>
     </div>
+  </header>
 
-    <div class="semestre">
-        <h2>2 Semestre</h2>
-        <div class="ramo" id="taller2">Taller 2: Métodos de Diseño</div>
-        <div class="ramo" id="fundamentos">Fundamentos de Programación</div>
-        <!-- Agrega el resto de ramos del 2do semestre aquí -->
-    </div>
+  <main class="grid">
+    <!-- 1° SEMESTRE -->
+    <section class="semestre">
+      <h2>1° Semestre</h2>
+      <button class="ramo" data-id="taller1" data-unlocks="taller2">Taller 1: Procesos Creativos</button>
+      <button class="ramo" data-id="narrativa">Narrativa Literaria e Hipertextual</button>
+      <button class="ramo" data-id="dibujo" data-unlocks="arte_digital">Dibujo Creativo</button>
+      <button class="ramo" data-id="intro_ingenieria">Introducción a Ingeniería en Diseño de Entretenimiento Digital</button>
+      <button class="ramo" data-id="calculo_dif" data-unlocks="calculo_int,fisica_mec">Cálculo Diferencial</button>
+      <button class="ramo" data-id="geometria" data-unlocks="fisica_mec,algebra_lineal">Geometría Analítica</button>
+      <button class="ramo" data-id="humanismo">Humanismo</button>
+      <button class="ramo" data-id="lengua_cultura">Lengua y Cultura</button>
+    </section>
 
-    <!-- Repite la estructura para los semestres restantes -->
+    <!-- 2° SEMESTRE -->
+    <section class="semestre">
+      <h2>2° Semestre</h2>
+      <button class="ramo" data-id="taller2" data-unlocks="taller3">Taller 2: Métodos de Diseño</button>
+      <button class="ramo" data-id="fprog" data-unlocks="poo">Fundamentos de Programación</button>
+      <button class="ramo" data-id="arte_digital">Fundamentos de Arte Digital</button>
+      <button class="ramo" data-id="intro_game">Introducción al Game Design</button>
+      <button class="ramo" data-id="calculo_int" data-unlocks="modelamiento,metodos_exp,proc_est">Cálculo Integral</button>
+      <button class="ramo" data-id="fisica_mec" data-unlocks="metodos_exp,produccion_audio">Física Mecánica</button>
+      <button class="ramo" data-id="etica_gen" data-unlocks="etica_prof">Ética General</button>
+      <button class="ramo" data-id="emprendimiento">Emprendimiento y responsabilidad social</button>
+    </section>
 
-    <script src="script.js"></script>
-</body>
-</html>
+    <!-- 3° SEMESTRE -->
+    <section class="semestre">
+      <h2>3° Semestre</h2>
+      <button class="ramo" data-id="taller3" data-unlocks="taller4">Taller 3: Diseño en Contexto</button>
+      <button class="ramo" data-id="poo" data-unlocks="sistemas_comp,sfi1,comp_grafica">Programación y Diseño Orientado a Objetos</button>
+      <button class="ramo" data-id="proc_cog">Procesos Cognitivos</button>
+      <button class="ramo" data-id="intro_anim" data-unlocks="animacion1">Introducción a la Animación</button>
+      <button class="ramo" data-id="produccion_audio" data-unlocks="diseno_sonoro">Producción de Audio</button>
+      <button class="ramo" data-id="metodos_exp">Métodos Experimentales en Física</button>
+      <button class="ramo" data-id="algebra_lineal" data-unlocks="comp_grafica">Álgebra Lineal</button>
+      <button class="ramo" data-id="cristologia">Cristología Básica</button>
+    </section>
+
+    <!-- 4° SEMESTRE -->
+    <section class="semestre">
+      <h2>4° Semestre</h2>
+      <button class="ramo" data-id="taller4" data-unlocks="taller5">Taller 4: Diseño de Producto</button>
+      <button class="ramo" data-id="sistemas_comp" data-unlocks="taller5,scripting,sid,proc_est">Sistemas Computacionales</button>
+      <button class="ramo" data-id="sfi1" data-unlocks="sfi2">Sistemas Físicos Interactivos 1</button>
+      <button class="ramo" data-id="animacion1"
 
