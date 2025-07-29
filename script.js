@@ -1,7 +1,7 @@
 /* ======== Malla IDED — lógica de prerrequisitos ======== */
 /* Funcionamiento:
    - Cada .ramo declara data-id y (opcional) data-unlocks (ids separados por coma).
-   - A partir de data-unlocks se arma el mapa de prerrequisitos por ramo destino.
+   - Se arma el mapa de prerrequisitos por ramo destino.
    - Un ramo está BLOQUEADO si tiene ≥1 prerrequisito no aprobado.
    - Al hacer clic en un ramo desbloqueado se alterna Aprobado/No aprobado y se propaga.
    - Estado se guarda en localStorage (progreso por navegador).
@@ -115,6 +115,12 @@
     URL.revokeObjectURL(a.href);
   });
 
+  // Botón Importar abre el selector de archivo
+  document.getElementById('btnImport').addEventListener('click', ()=>{
+    document.getElementById('importFile').click();
+  });
+
+  // Lectura del archivo importado
   document.getElementById('importFile').addEventListener('change', (e)=>{
     const file = e.target.files[0];
     if (!file) return;
