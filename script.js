@@ -47,34 +47,45 @@
     localStorage.setItem(STORAGE_KEY, JSON.stringify({ aprobado: [...aprobado] }));
   }
 
+  /* ---- Aviso flotante reutilizable ---- */
+  let tip;
+  function avisar(msg){
+    if (!tip){
+      tip = document.createElement('div');
+      tip.className = 'tooltip';
+      document.body.appendChild(tip);
+    }
+    tip.textContent = msg;
+    tip.classList.add('show');
+    clearTimeout(tip._t);
+    tip._t = setTimeout(()=> tip.classList.remove('show'), 2400);
+  }
+
   /* ---- Render visual según estado ---- */
   function aplicarEstadoVisual(){
     ramos.forEach(btn=>{
       const id = btn.dataset.id;
       btn.classList.remove('locked','unlocked','aprobado');
-      btn.removeAttribute('title');
+      btn.removeAttribute('title'); // solo usaremos el aviso flotante
 
       if (aprobado.has(id)) {
         btn.classList.add('aprobado');
-        btn.disabled = false;
         btn.setAttribute('aria-pressed','true');
         return;
       }
 
       const reqs = prereqsMap[id];
       if (reqs && ![...reqs].every(r => aprobado.has(r))) {
-        // Faltan requisitos -> bloqueado
+        // Faltan requisitos -> bloqueado (pero NO disabled para permitir clic y mostrar aviso)
         btn.classList.add('locked');
-        btn.disabled = true;
         btn.setAttribute('aria-pressed','false');
-
+        // Puedes dejar también un title por si quieres ver el mensaje al pasar el mouse:
         const faltan = [...reqs].filter(r => !aprobado.has(r))
           .map(r => byId(r)?.textContent.trim() || r);
-        if (faltan.length) btn.title = `Bloqueado. Primero aprueba: ${faltan.join(', ')}`;
+        btn.title = `Bloqueado. Primero aprueba: ${faltan.join(', ')}`;
       } else {
         // Sin requisitos pendientes -> se puede cursar
         btn.classList.add('unlocked');
-        btn.disabled = false;
         btn.setAttribute('aria-pressed','false');
       }
     });
@@ -85,9 +96,20 @@
     const btn = e.currentTarget;
     const id = btn.dataset.id;
 
-    if (btn.disabled) return; // bloqueado: no hace nada
+    if (btn.classList.contains('locked')) {
+      // Mostrar qué falta para desbloquear
+      const reqs = prereqsMap[id] || new Set();
+      const faltan = [...reqs].filter(r => !aprobado.has(r))
+        .map(r => byId(r)?.textContent.trim() || r);
+      if (faltan.length){
+        avisar(`Para cursar “${btn.textContent.trim()}” primero aprueba: ${faltan.join(', ')}`);
+      } else {
+        avisar(`“${btn.textContent.trim()}” aún no está disponible.`);
+      }
+      return; // no alternamos estado
+    }
 
-    // Alternar aprobado
+    // Alternar aprobado para ramos desbloqueados
     if (aprobado.has(id)) {
       aprobado.delete(id);
     } else {
