@@ -9,9 +9,9 @@
   --morado-700:#6b3fa0;
   --morado-800:#4f2e7d;
 
-  --lila-100:#e3d9f8;
-  --lila-200:#d1c0f0;
-  --lila-borde:#bda9e6;
+  --gris-bloq-100:#f1f1f4;
+  --gris-bloq-200:#e6e6ec;
+  --gris-bloq-borde:#c9c9d4;
 
   --ok:#14a44d;
   --gris-100:#f6f6f9;
@@ -124,15 +124,15 @@ body{
   color:var(--ok);
 }
 
-/* Bloqueado: lila + candado + deshabilitado */
+/* Bloqueado: gris + candado + deshabilitado */
 .ramo.locked,
 .ramo:disabled{
-  cursor:not-allowed;
-  color:#4f2e7d;
-  border-color:var(--lila-borde);
-  background: linear-gradient(180deg, var(--lila-100), var(--lila-200));
+  cursor: not-allowed;
+  color: #5a5a5a; /* texto gris */
+  border-color: var(--gris-bloq-borde);
+  background: linear-gradient(180deg, var(--gris-bloq-100), var(--gris-bloq-200));
   box-shadow: none;
-  opacity: 0.85;
+  opacity: 0.9;
 }
 .ramo.locked::after,
 .ramo:disabled::after{
