@@ -3,23 +3,23 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Malla Curricular Interactiva — IDED</title>
+  <title>malla curricular interactiva – animación IDED</title>
 
-  <!-- Debe coincidir con el nombre real del archivo de estilos -->
+  <!-- Asegúrate que el nombre coincida con el archivo real -->
   <link rel="stylesheet" href="estilos.css" />
 
-  <!-- Fuente opcional para mejor tipografía -->
+  <!-- Fuente opcional -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
   <header class="app-header">
-    <h1>Malla Curricular Interactiva — IDED</h1>
+    <h1>malla curricular interactiva – animación IDED</h1>
     <div class="toolbar">
       <button id="btnReset" class="btn ghost" type="button">Reiniciar</button>
       <button id="btnExport" class="btn ghost" type="button">Exportar progreso</button>
-      <label class="btn ghost" for="importFile">Importar progreso</label>
+      <button id="btnImport" class="btn ghost" type="button">Importar progreso</button>
       <input id="importFile" type="file" accept=".json" hidden>
     </div>
   </header>
@@ -82,7 +82,7 @@
       <h2>5° Semestre</h2>
       <button class="ramo" data-id="taller5" data-unlocks="taller6">Taller 5: Animación</button>
       <button class="ramo" data-id="scripting" data-unlocks="visual_info">Scripting</button>
-      <button class="ramo" data-id="ux1">Diseño de Interfaz y Experiencia de Usuario</button>
+      <button class="ramo" data-id="ux1" data-unlocks="ux2">Diseño de Interfaz y Experiencia de Usuario</button>
       <button class="ramo" data-id="hist_tend">Historia y tendencias del Entretenimiento Digital</button>
       <button class="ramo" data-id="proc_est">Procesos Estocásticos</button>
       <button class="ramo" data-id="diseno_personajes">Diseño de Personajes</button>
