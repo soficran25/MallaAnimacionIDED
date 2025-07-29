@@ -1,20 +1,19 @@
 :root{
+  /* Morados pastel */
   --morado-50:#f8f6ff;
   --morado-100:#efe9ff;
   --morado-200:#e0d3ff;
   --morado-300:#cbb3f5;
   --morado-400:#b495ec;
   --morado-500:#a177e3;
-  --morado-600:#8a5fd4;
   --morado-700:#6b3fa0;
-  --morado-800:#4f2e7d;
 
+  /* Grises para bloqueados */
   --gris-bloq-100:#f1f1f4;
   --gris-bloq-200:#e6e6ec;
   --gris-bloq-borde:#c9c9d4;
 
   --ok:#14a44d;
-  --gris-100:#f6f6f9;
 }
 
 *{box-sizing:border-box}
@@ -47,18 +46,35 @@ body{
   color:#5b4979;
 }
 
+/* ---- Botones (mismos estilo/fuente/tamaño) ---- */
 .toolbar{display:flex; gap:8px; flex-wrap:wrap}
+
 .btn{
-  border:1px solid var(--morado-300);
-  background:linear-gradient(#fff, var(--morado-100));
-  padding:8px 12px;
-  border-radius:10px;
-  font-weight:600;
-  cursor:pointer;
-  transition:all .15s ease;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  font-family: inherit;
+  font-size: 14px;   /* tamaño uniforme */
+  line-height: 1.1;
+  font-weight: 600;
+
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+
+  border: 1px solid var(--morado-300);
+  background: linear-gradient(#fff, var(--morado-100));
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
 }
-.btn:hover{transform:translateY(-1px); box-shadow:0 4px 12px rgba(107,63,160,.15)}
-.btn.ghost{background:transparent; border-color:var(--morado-400)}
+.btn:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(107,63,160,.15);
+}
+.btn.ghost{
+  background: transparent;
+  border-color: var(--morado-400);
+}
 
 /* ---- Grid ---- */
 .grid{
@@ -145,7 +161,7 @@ body{
 /* Unlocked (morado por defecto) */
 .ramo.unlocked{}
 
-/* Tooltip simple */
+/* Tooltip (no imprescindible si están disabled) */
 .tooltip{
   position:fixed;
   left:50%;
