@@ -1,4 +1,4 @@
-/* ======== Malla IDED — lógica de prerrequisitos ======== */
+* ======== Malla IDED — lógica de prerrequisitos ======== */
 /* Funcionamiento:
    - Cada .ramo declara data-id y (opcional) data-unlocks (ids separados por coma).
    - Se arma el mapa de prerrequisitos por ramo destino.
